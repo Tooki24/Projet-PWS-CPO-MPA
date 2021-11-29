@@ -5,11 +5,14 @@ services:
     build:
       context: .
       dockerfile: docker/php/Dockerfile
-    container_name: iut-phpCPO
+    container_name: iut-phpProjet
     volumes:
       - "./:/var/www/html/"
+      - symfonyvar:/var/www/html/projet/var
+      - symfonyvendor:/var/www/html/projet/vendor
+
   web:
-    container_name: iut-webCPO
+    container_name: iut-webProjet
     build:
       context: .
       dockerfile: docker/web/Dockerfile
@@ -22,7 +25,7 @@ services:
     build:
       context: .
       dockerfile: docker/db/Dockerfile
-    container_name: iut-dbCPO
+    container_name: iut-dbProjet
     ports:
       - "3307:3306" # mysql
     environment:
@@ -30,3 +33,7 @@ services:
       MYSQL_USER: iut
       MYSQL_PASSWORD: iut
       MYSQL_ROOT_PASSWORD: iut
+
+volumes:
+  symfonyvar:
+  symfonyvendor:
