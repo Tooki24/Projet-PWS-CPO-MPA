@@ -8,11 +8,19 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    #[Route('/', name: 'index')]
+    #[Route('/espace-rdv', name: 'index')]
     public function index(): Response
     {
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
         ]);
     }
+    #[Route('/espace-rdv/langue', name: 'langue')]
+    public function langue(): Response
+    {
+        return $this->render('main/langue.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
+    }
+
 }
