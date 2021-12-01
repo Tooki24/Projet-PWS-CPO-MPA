@@ -63,6 +63,12 @@ class User
      */
     private $infoRDV;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Langue::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $langue;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -172,6 +178,18 @@ class User
     public function setInfoRDV(?string $infoRDV): self
     {
         $this->infoRDV = $infoRDV;
+
+        return $this;
+    }
+
+    public function getLangue(): ?Langue
+    {
+        return $this->langue;
+    }
+
+    public function setLangue(?Langue $langue): self
+    {
+        $this->langue = $langue;
 
         return $this;
     }
