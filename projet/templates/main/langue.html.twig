@@ -2,19 +2,19 @@
 
 {% block title %}Hello MainController!{% endblock %}
 
-{% block body %}
-    <style>
-        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    </style>
-
-    <div class="example-wrapper">
-        <h1>Hello {{ controller_name }}! ✅</h1>
-
-        This friendly message is coming from:
-        <ul>
-            <li>Your controller at <code><a href="{{ '/var/www/html/projet/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-            <li>Your template at <code><a href="{{ '/var/www/html/projet/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-        </ul>
-    </div>
+{% block content %}
+    <section class="masthead bg-primary text-white text-center" style="min-height: 912px">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Heading-->
+            <h2 class= "text-uppercase mb-4">Quelle est votre langue ?</h2>
+            <br>
+            <div class="row d-flex justify-content-around">
+                <div class="col mt-2">
+                    {% for langue in langues %}
+                        <a href="{{ path('planning', {'lg': langue.language}) }}"><img class="img-fluid ml-5" src="{{ asset(langue.file) }}"/></a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

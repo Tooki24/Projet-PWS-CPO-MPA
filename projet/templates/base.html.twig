@@ -5,10 +5,15 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
+
+
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <title>
         {% block title %} Office de tourisme Ile de Ré {% endblock %}
     </title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sticky-footer/">
 
 
     <!-- Bootstrap core CSS -->
@@ -16,6 +21,9 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/sticky-footer.css') }}" rel="stylesheet">
+
+    <!-- Style Theme -->
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 
 
     <meta name="theme-color" content="#7952b3">
@@ -44,6 +52,7 @@
 <body class="d-flex flex-column h-100">
 
 <!-- Begin page content -->
+{% include 'main/header.html.twig' %}
 <main class="flex-shrink-0">
     {% block content %}
         <div class="container">
@@ -55,14 +64,14 @@
                 too.</p>
         </div>
     {% endblock %}
-
 </main>
+{% include 'main/footer.html.twig' %}
 
-<footer class="footer mt-auto py-3 bg-light">
-    <div class="container">
 
-    </div>
-</footer>
+<!-- Script Page -->
 <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+<script src="{{ asset('js/scripts.js') }}"></script>
+
+
 </body>
 </html>
