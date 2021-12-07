@@ -11,6 +11,7 @@ class UserUnitTest extends TestCase
     public function testIsTrue(): void
     {
         $date = new \DateTime();
+        $langue = new Langue();
         $user = new User();
 
         $user->setNom('Fumel')
@@ -35,6 +36,7 @@ class UserUnitTest extends TestCase
     {
         $date = new \DateTime();
         $user = new User();
+        $langue = new Langue();
 
         $user->setNom('Fumel')
             ->setPrenom('Mathis')
@@ -61,7 +63,6 @@ class UserUnitTest extends TestCase
     {
         $user = new User();
 
-
         $this->assertEmpty($user->getNom());
         $this->assertEmpty($user->getPrenom());
         $this->assertEmpty($user->getEmail());
@@ -70,6 +71,7 @@ class UserUnitTest extends TestCase
         $this->assertEmpty($user->getNewletter());
         $this->assertEmpty($user->getDateArrive());
         $this->assertEmpty($user->getDateDepart());
+        $this->assertEmpty($user->getLangue());
     }
 
 }
