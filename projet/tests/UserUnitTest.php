@@ -2,6 +2,7 @@
 
 namespace App\Tests;
 
+use App\Entity\Langue;
 use App\Entity\User;
 use PHPUnit\Framework\TestCase;
 
@@ -42,7 +43,8 @@ class UserUnitTest extends TestCase
             ->setNumTouriste(2)
             ->setNewletter(true)
             ->setDateArrive($date)
-            ->setDateDepart($date);
+            ->setDateDepart($date)
+            ->setLangue($langue);
 
         $this->assertFalse($user->getNom() === 'false');
         $this->assertFalse($user->getPrenom() === 'false');
@@ -52,6 +54,7 @@ class UserUnitTest extends TestCase
         $this->assertFalse($user->getNewletter() === false);
         $this->assertFalse($user->getDateArrive() === new \DateTime());
         $this->assertFalse($user->getDateDepart() === new \DateTime());
+        $this->assertFalse($user->getLangue() === new Langue());
     }
 
     public function testIsEmpty(): void
