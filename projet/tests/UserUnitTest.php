@@ -2,6 +2,7 @@
 
 namespace App\Tests;
 
+use App\Entity\Langue;
 use App\Entity\User;
 use PHPUnit\Framework\TestCase;
 
@@ -10,6 +11,7 @@ class UserUnitTest extends TestCase
     public function testIsTrue(): void
     {
         $date = new \DateTime();
+        $langue = new Langue();
         $user = new User();
 
         $user->setNom('Fumel')
@@ -34,6 +36,7 @@ class UserUnitTest extends TestCase
     {
         $date = new \DateTime();
         $user = new User();
+        $langue = new Langue();
 
         $user->setNom('Fumel')
             ->setPrenom('Mathis')
@@ -42,7 +45,8 @@ class UserUnitTest extends TestCase
             ->setNumTouriste(2)
             ->setNewletter(true)
             ->setDateArrive($date)
-            ->setDateDepart($date);
+            ->setDateDepart($date)
+            ->setLangue($langue);
 
         $this->assertFalse($user->getNom() === 'false');
         $this->assertFalse($user->getPrenom() === 'false');
@@ -52,12 +56,12 @@ class UserUnitTest extends TestCase
         $this->assertFalse($user->getNewletter() === false);
         $this->assertFalse($user->getDateArrive() === new \DateTime());
         $this->assertFalse($user->getDateDepart() === new \DateTime());
+        $this->assertFalse($user->getLangue() === new Langue());
     }
 
     public function testIsEmpty(): void
     {
         $user = new User();
-
 
         $this->assertEmpty($user->getNom());
         $this->assertEmpty($user->getPrenom());
@@ -67,6 +71,7 @@ class UserUnitTest extends TestCase
         $this->assertEmpty($user->getNewletter());
         $this->assertEmpty($user->getDateArrive());
         $this->assertEmpty($user->getDateDepart());
+        $this->assertEmpty($user->getLangue());
     }
 
 }

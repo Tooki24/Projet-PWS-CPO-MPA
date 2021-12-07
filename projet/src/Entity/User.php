@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -68,6 +70,16 @@ class User
      * @ORM\JoinColumn(nullable=false)
      */
     private $langue;
+
+    /**
+     * @ORM\OneToMany(targetEntity=RDV::class, mappedBy="user")
+     */
+    private $rDVs;
+
+    public function __construct()
+    {
+        $this->rDVs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -190,6 +202,36 @@ class User
     public function setLangue(?Langue $langue): self
     {
         $this->langue = $langue;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RDV[]
+     */
+    public function getRDVs(): Collection
+    {
+        return $this->rDVs;
+    }
+
+    public function addRDV(RDV $rDV): self
+    {
+        if (!$this->rDVs->contains($rDV)) {
+            $this->rDVs[] = $rDV;
+            $rDV->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRDV(RDV $rDV): self
+    {
+        if ($this->rDVs->removeElement($rDV)) {
+            // set the owning side to null (unless already changed)
+            if ($rDV->getUser() === $this) {
+                $rDV->setUser(null);
+            }
+        }
 
         return $this;
     }
