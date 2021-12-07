@@ -119,6 +119,26 @@
       <path value="$PROJECT_DIR$/projet/vendor/symfony/yaml" />
       <path value="$PROJECT_DIR$/projet/vendor/symfony/web-server-bundle" />
       <path value="$PROJECT_DIR$/projet/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/projet/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/projet/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/security-guard" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/web-link" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/notifier" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/projet/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/projet/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/projet/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/projet/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/projet/vendor/doctrine/doctrine-fixtures-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1">
