@@ -11508,3 +11508,7 @@ html {
   background-color: #1a252f;
 }
 
+.table > tbody > tr > td {
+  display : flex;
+  justify-content: center;
+}
