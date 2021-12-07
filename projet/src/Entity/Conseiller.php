@@ -59,11 +59,17 @@ class Conseiller
      */
     private $rdvs;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Creneau::class, inversedBy="conseillers")
+     */
+    private $Creneaux;
+
 
     public function __construct()
     {
         $this->languge = new ArrayCollection();
         $this->rdvs = new ArrayCollection();
+        $this->Creneaux = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -193,6 +199,30 @@ class Conseiller
                 $rdv->setConseiller(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Creneau[]
+     */
+    public function getCreneaux(): Collection
+    {
+        return $this->Creneaux;
+    }
+
+    public function addCreneaux(Creneau $creneaux): self
+    {
+        if (!$this->Creneaux->contains($creneaux)) {
+            $this->Creneaux[] = $creneaux;
+        }
+
+        return $this;
+    }
+
+    public function removeCreneaux(Creneau $creneaux): self
+    {
+        $this->Creneaux->removeElement($creneaux);
 
         return $this;
     }
