@@ -24,11 +24,10 @@ class MainController extends AbstractController
         ]);
     }
     #[Route('/espace-rdv/planning/{lg}', name: 'planning')]
-    public function planning(string $lg, RdvRepository $rdvRepository): Response
+    public function planning(string $lg,): Response
     {
         return $this->render('main/planning.html.twig', [
             'controller_name' => 'MainController',
-            'rdv'=>$rdvRepository->findAll(),
             'lan' => $lg,
         ]);
     }
