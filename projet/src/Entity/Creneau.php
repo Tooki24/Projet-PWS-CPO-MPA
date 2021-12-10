@@ -19,20 +19,7 @@ class Creneau
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $Date;
 
-    /**
-     * @ORM\Column(type="time")
-     */
-    private $heureDenut;
-
-    /**
-     * @ORM\Column(type="time", nullable=true)
-     */
-    private $heureFin;
 
     /**
      * @ORM\OneToMany(targetEntity=RDV::class, mappedBy="creneau")
@@ -43,6 +30,21 @@ class Creneau
      * @ORM\ManyToMany(targetEntity=Conseiller::class, mappedBy="Creneaux")
      */
     private $conseillers;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $status;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $semaine;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $heureDebut;
 
     public function __construct()
     {
@@ -55,41 +57,6 @@ class Creneau
         return $this->id;
     }
 
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->Date;
-    }
-
-    public function setDate(\DateTimeInterface $Date): self
-    {
-        $this->Date = $Date;
-
-        return $this;
-    }
-
-    public function getHeureDenut(): ?\DateTimeInterface
-    {
-        return $this->heureDenut;
-    }
-
-    public function setHeureDenut(\DateTimeInterface $heureDenut): self
-    {
-        $this->heureDenut = $heureDenut;
-
-        return $this;
-    }
-
-    public function getHeureFin(): ?\DateTimeInterface
-    {
-        return $this->heureFin;
-    }
-
-    public function setHeureFin(?\DateTimeInterface $heureFin): self
-    {
-        $this->heureFin = $heureFin;
-
-        return $this;
-    }
 
     /**
      * @return Collection|RDV[]
@@ -144,6 +111,42 @@ class Creneau
         if ($this->conseillers->removeElement($conseiller)) {
             $conseiller->removeCreneaux($this);
         }
+
+        return $this;
+    }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getSemaine(): ?string
+    {
+        return $this->semaine;
+    }
+
+    public function setSemaine(string $semaine): self
+    {
+        $this->semaine = $semaine;
+
+        return $this;
+    }
+
+    public function getHeureDebut(): ?\DateTimeInterface
+    {
+        return $this->heureDebut;
+    }
+
+    public function setHeureDebut(\DateTimeInterface $heureDebut): self
+    {
+        $this->heureDebut = $heureDebut;
 
         return $this;
     }

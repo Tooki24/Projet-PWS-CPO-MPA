@@ -4,10 +4,10 @@
 {% block content %}
     <section class="masthead bg-primary text-white text-center" style="min-height: 912px">
         <div class="container d-flex align-items-center flex-column">
-            <!-- Masthead Heading-->
-            <h2 class= "text-uppercase mb-4">Planning</h2>
-            <br>
-                <a href="{{ path('conseillers', {'lg': lan}) }}">Test</a>
+
+            {% for creneau in creneaux %}
+                <a href="#">{{ creneau.heureDebut|date("d/m/Y") }}</a>
+            {% endfor %}
         </div>
     </section>
 {% endblock %}
