@@ -123,6 +123,14 @@
       <excludeFolder url="file://$MODULE_DIR$/projet/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/projet/vendor/symfony/web-server-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/projet/vendor/theseer/tokenizer" />
+<<<<<<< Updated upstream
+=======
+      <excludeFolder url="file://$MODULE_DIR$/projet/vendor/fakerphp/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/projet/vendor/doctrine/data-fixtures" />
+      <excludeFolder url="file://$MODULE_DIR$/projet/vendor/doctrine/doctrine-fixtures-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/asset" />
+>>>>>>> Stashed changes
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
