@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CreneauRepository;
 use App\Repository\LangueRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,9 +25,20 @@ class MainController extends AbstractController
         ]);
     }
     #[Route('/espace-rdv/planning/{lg}', name: 'planning')]
-    public function planning(string $lg): Response
+    public function planning(string $lg, CreneauRepository $creneauRepository): Response
     {
+        $test = $creneauRepository->findAll();
+
+            
         return $this->render('main/planning.html.twig', [
+            'creneaux' => $test,
+            'lan' => $lg,
+        ]);
+    }
+    #[Route('/espace-rdv/conseillers/{lg}', name: 'conseillers')]
+    public function conseillers(string $lg): Response
+    {
+        return $this->render('main/conseillers.html.twig', [
             'controller_name' => 'MainController',
             'lan' => $lg,
         ]);
