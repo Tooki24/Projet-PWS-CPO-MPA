@@ -4,7 +4,9 @@ namespace App\Repository;
 
 use App\Entity\Creneau;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\DBAL\Statement;
 
 /**
  * @method Creneau|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,6 +21,17 @@ class CreneauRepository extends ServiceEntityRepository
         parent::__construct($registry, Creneau::class);
     }
 
+     /**
+      * @return Creneau[] Returns an array of Creneau objects
+      */
+
+    public function findByDay()
+    {
+        $query =  $this->getEntityManager()->createQuery("
+        SELECT DISTINCT c.day FROM App\Entity\Creneau c");
+
+        return $query->execute();
+    }
     // /**
     //  * @return Creneau[] Returns an array of Creneau objects
     //  */

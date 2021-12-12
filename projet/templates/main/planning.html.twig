@@ -6,8 +6,9 @@
         <div class="container d-flex align-items-center flex-column">
 
             {% for creneau in creneaux %}
-                <a href="#">{{ creneau.heureDebut|date("d/m/Y") }}</a>
+                <a href="#">{{ creneau.day|date("d/m/Y") }}</a>
             {% endfor %}
+
         </div>
     </section>
 {% endblock %}

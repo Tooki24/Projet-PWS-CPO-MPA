@@ -42,9 +42,15 @@ class Creneau
     private $semaine;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="time")
      */
     private $heureDebut;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $day;
+    
 
     public function __construct()
     {
@@ -150,4 +156,17 @@ class Creneau
 
         return $this;
     }
+
+    public function getDay(): ?\DateTimeInterface
+    {
+        return $this->day;
+    }
+
+    public function setDay(\DateTimeInterface $day): self
+    {
+        $this->day = $day;
+
+        return $this;
+    }
+
 }

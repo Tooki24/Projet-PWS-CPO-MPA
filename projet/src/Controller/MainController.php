@@ -28,10 +28,15 @@ class MainController extends AbstractController
     public function planning(string $lg, CreneauRepository $creneauRepository): Response
     {
         $test = $creneauRepository->findAll();
+        $tabDay = array();
+        foreach ($test as $value)
+        {
+            array_push($tabDay, $value->getDay());
+        }
 
-            
+
         return $this->render('main/planning.html.twig', [
-            'creneaux' => $test,
+            'creneaux' => $creneauRepository->findByDay(),
             'lan' => $lg,
         ]);
     }

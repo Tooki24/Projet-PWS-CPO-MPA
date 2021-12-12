@@ -47,6 +47,7 @@ class AppFixtures extends Fixture
         //Incrementation Creneau pour une journée
 
         $oldDate = "2021-12-7 09:00:00";
+
         $iDay = 7;
         $day = "7";
         for($i=0; $i<5; $i++)
@@ -63,7 +64,8 @@ class AppFixtures extends Fixture
 
                 $creneau->setHeureDebut(new \DateTime($oldDate))
                     ->setStatus(true)
-                    ->setSemaine("Semaine ".strval($idSemaine));
+                    ->setSemaine("Semaine ".strval($idSemaine))
+                    ->setDay(new \DateTime($oldDate));
                 $iMin+=15;
                 $min = strval($iMin);
                 if($iMin >= 60)
