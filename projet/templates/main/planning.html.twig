@@ -3,11 +3,15 @@
 {% block title %}Hello MainController!{% endblock %}
 {% block content %}
     <section class="masthead bg-primary text-white text-center" style="min-height: 912px">
-        <div class="container d-flex align-items-center flex-column">
+        <h2 class="text-uppercase mb-4">Sélectionner un date</h2>
 
+        <div class="container d-flex align-items-center flex-column mt-4">
             {% for creneau in creneaux %}
-                <a href="#">{{ creneau.day|date("d/m/Y") }}</a>
+                <p class="form-group lead text-white "> Le
+                <a style="color: white" href="{{ path('planningHeure', {'lg': lan, 'date': creneau.day|date("d-m-Y")}) }}">{{ creneau.day|date("d/m/Y") }}</a>
+                </p>
             {% endfor %}
+
 
         </div>
     </section>

@@ -75,19 +75,19 @@ class AppFixtures extends Fixture
                     $min = strval($iMin);
                     $hours = strval($iHours);
                 }
-                $oldDate = "2021-02-".$day." ".$hours.":".$min.":00";
+                $oldDate = "2021-12-".$day." ".$hours.":".$min.":00";
                 if($iHours == 12)
                 {
                     $iHours +=2;
                     $hours = strval($iHours);
-                    $oldDate = "2021-02-".$day." ".$hours.":".$min.":00";
+                    $oldDate = "2021-12-".$day." ".$hours.":".$min.":00";
                 }
 
                 $manager->persist($creneau);
             }
             $iDay+=1;
             $day = strval($iDay);
-            $oldDate = "2021-02-".$day." ".$hours.":".$min.":00";
+            $oldDate = "2021-12-".$day." ".$hours.":".$min.":00";
 
         }
 
