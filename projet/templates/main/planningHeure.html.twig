@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block content %}
+    <section class="masthead bg-primary text-white text-center" style="min-height: 912px">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Heading-->
+            <h2 class= "text-uppercase mb-4">Selectionner une horaire</h2>
+            <br>
+            <div class="flex-column" style="width: 60%">
+                {% for horaire in creneauxH %}
+                    {% if horaire.status == true %}
+                        <a href="{{ path('conseillers', {'lg': lan, 'rdv': horaire.id}) }}"><button type="button" class="btn btn-success m-1">{{ horaire.heureDebut|date('H:i') }}</button></a>
+                    {% else %}
+                        <button type="button" class="btn btn-danger m-1">{{ horaire.heureDebut|date('H:i') }}</button>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

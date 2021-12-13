@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Repository\CreneauRepository;
 use App\Repository\LangueRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Date;
 
 class MainController extends AbstractController
 {
@@ -24,9 +26,27 @@ class MainController extends AbstractController
         ]);
     }
     #[Route('/espace-rdv/planning/{lg}', name: 'planning')]
-    public function planning(string $lg,): Response
+    public function planning(string $lg, CreneauRepository $creneauRepository): Response
     {
+
         return $this->render('main/planning.html.twig', [
+            'creneaux' => $creneauRepository->findByDay(),
+            'lan' => $lg,
+        ]);
+    }
+    #[Route('/espace-rdv/planningHeure/{lg}/{date}', name: 'planningHeure')]
+    public function planningHeure(string $lg, string $date, CreneauRepository $creneauRepository): Response
+    {
+        return $this->render('main/planningHeure.html.twig', [
+            'lan' => $lg,
+            'date' => $date,
+            'creneauxH' => $creneauRepository->findBy(["day" => new \DateTime($date)])
+        ]);
+    }
+    #[Route('/espace-rdv/conseillers/{lg}/{rdv}', name: 'conseillers')]
+    public function conseillers(string $lg, int $rdv): Response
+    {
+        return $this->render('main/conseillers.html.twig', [
             'controller_name' => 'MainController',
             'lan' => $lg,
         ]);
