@@ -1,5 +1,7 @@
 {
     "require": {
-        "symfony/asset": "^6.0"
+        "symfony/asset": "^6.0",
+        "symfony/form": "^6.0",
+        "symfony/validator": "^6.0"
     }
 }

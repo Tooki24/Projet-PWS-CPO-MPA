@@ -7,6 +7,7 @@ use App\Repository\LangueRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\User;
 
 class MainController extends AbstractController
 {
@@ -44,4 +45,15 @@ class MainController extends AbstractController
         ]);
     }
 
+    #[Route('/espace-rdv/formulaire/{lg}', name: 'formulaire rdv')]
+    public function formRDV(string $lg): Response
+    {
+        $user=new User();
+        $formDRV = $this->createForm(FormRDVType::class ,$user);
+
+        return $this->render('main/formRdv.html.twig', [
+            'lan' => $lg,
+            'form' => $formDRV->createView(),
+        ]);
+    }
 }

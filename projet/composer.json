@@ -24,7 +24,7 @@
         "symfony/dotenv": "^5.3",
         "symfony/yaml": "^5.3",
         "sensio/framework-extra-bundle": "^6.2",
-        "symfony/form": "^5.3",
+        "symfony/form": "^6.0",
         "symfony/validator": "^5.3",
         "symfony/security-csrf": "^5.3",
         "composer/package-versions-deprecated": "1.11.99.4",
