@@ -29,7 +29,8 @@ class AppFixtures extends Fixture
 
         $manager->persist($langue1);
         $manager->persist($langue2);
-        for($i=0; $i<3; $i++)
+        $tabconseiller=array();
+        for($i=1; $i<=3; $i++)
         {
             $conseiller = new Conseiller();
 
@@ -39,7 +40,7 @@ class AppFixtures extends Fixture
                         ->setEmail($faker->email())
                         ->setTel("0760777811")
                         ->addLanguge($langue1)->addLanguge($langue2);
-
+                        array_push($tabconseiller,$conseiller);
 
             $manager->persist($conseiller);
         }
@@ -66,6 +67,11 @@ class AppFixtures extends Fixture
                     ->setStatus(true)
                     ->setSemaine("Semaine ".strval($idSemaine))
                     ->setDay(new \DateTime($oldDate));
+                    foreach ($tabconseiller as $conseiller)
+                    {
+                        $creneau->addConseiller($conseiller);
+                    }
+
                 $iMin+=15;
                 $min = strval($iMin);
                 if($iMin >= 60)
@@ -99,5 +105,6 @@ class AppFixtures extends Fixture
 
         $manager->flush();
     }
+
 }
 

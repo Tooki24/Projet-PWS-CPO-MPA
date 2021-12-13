@@ -25,7 +25,7 @@ class MainController extends AbstractController
             'langues' => $langueRepository->findAll()
         ]);
     }
-    #[Route(''/espace-rdv/planning/{lg}'',name: 'planning')]
+    #[Route('/espace-rdv/planning/{lg}',name: 'planning')]
 
     public function planning(string $lg, CreneauRepository $creneauRepository): Response
 
