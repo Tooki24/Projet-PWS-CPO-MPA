@@ -19,15 +19,13 @@ class RDV
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $date;
 
     /**
-     * @ORM\Column(type="time")
+     * @ORM\ManyToOne(targetEntity=Creneau::class, inversedBy="rDVs")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $heure;
+    private $creneau;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -46,6 +44,8 @@ class RDV
     private $conseillers;
 
 
+
+
     public function __construct()
     {
         $this->conseillers = new ArrayCollection();
@@ -57,26 +57,14 @@ class RDV
         return $this->id;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getCreneau(): ?Creneau
     {
-        return $this->date;
+        return $this->creneau;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setCreneau(?Creneau $creneau): self
     {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    public function getHeure(): ?\DateTimeInterface
-    {
-        return $this->heure;
-    }
-
-    public function setHeure(\DateTimeInterface $heure): self
-    {
-        $this->heure = $heure;
+        $this->creneau = $creneau;
 
         return $this;
     }
@@ -116,8 +104,4 @@ class RDV
 
         return $this;
     }
-
-
-
-
 }
