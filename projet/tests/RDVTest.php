@@ -2,14 +2,12 @@
 
 namespace App\Tests;
 
-use App\Entity\User;
 use PHPUnit\Framework\TestCase;
 
-class UserTestUnitTest extends TestCase
+class RDVTest extends TestCase
 {
     public function testSomething(): void
     {
-        $user = new User();
         $this->assertTrue(true);
     }
 }

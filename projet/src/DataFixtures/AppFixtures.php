@@ -29,6 +29,7 @@ class AppFixtures extends Fixture
 
         $manager->persist($langue1);
         $manager->persist($langue2);
+        $tabArray = array();
         for($i=0; $i<3; $i++)
         {
             $conseiller = new Conseiller();
@@ -40,6 +41,7 @@ class AppFixtures extends Fixture
                         ->setTel("0760777811")
                         ->addLanguge($langue1)->addLanguge($langue2);
 
+            array_push($tabArray, $conseiller);
 
             $manager->persist($conseiller);
         }
