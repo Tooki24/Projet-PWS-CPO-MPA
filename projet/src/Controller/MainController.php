@@ -31,5 +31,13 @@ class MainController extends AbstractController
             'lan' => $lg,
         ]);
     }
+        #[Route('/espace-rdv/choixConseiller/{lg}', name: 'choixConseiller')]
+    public function choixConseiller(string $lg,): Response
+    {
+        return $this->render('main/choixConseiller.html.twig', [
+            'controller_name' => 'MainController',
+            'lan' => $lg,
+        ]);
+    }
 
 }
