@@ -11,9 +11,9 @@
                     {% for conseillers in conseiller %}
                         <div class="col">
                             <a style="text-decoration: none;" href="{{ path('formRDV', {'lg': lan, 'idCreneau': idCren,'idConseiller' : conseillers.id} ) }}">
-                                <img style="width: 55%" class="img-fluids" src="{{ asset('img/profile.png') }}"/>
+                                <img style="width: 55%" class="img-fluids" src="{{ asset('img/profile.png') }}" alt="image conseiller"/>
                                 <h3 class="text-center fw-bold text-white mt-4">{{ conseillers.nom }} {{ conseillers.prenom }}</h3>
-                                <p>{{ conseillers.specialite }}</p>
+                                <p style="text-decoration: none; color: white;">{{ conseillers.specialite }}</p>
                             </a>
                         </div>
                     {% endfor %}
