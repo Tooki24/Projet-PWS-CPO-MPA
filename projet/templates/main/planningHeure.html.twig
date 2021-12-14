@@ -11,7 +11,7 @@
             <div class="flex-column" style="width: 60%">
                 {% for horaire in creneauxH %}
                     {% if horaire.status == true %}
-                        <a href="{{ path('conseillers', {'lg': lan, 'rdv': horaire.id}) }}"><button type="button" class="btn btn-success m-1">{{ horaire.heureDebut|date('H:i') }}</button></a>
+                        <a href="{{ path('conseillers', {'lg': lan, 'idCreneau': horaire.id}) }}"><button type="button" class="btn btn-success m-1">{{ horaire.heureDebut|date('H:i') }}</button></a>
                     {% else %}
                         <button type="button" class="btn btn-danger m-1">{{ horaire.heureDebut|date('H:i') }}</button>
                     {% endif %}

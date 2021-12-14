@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Conseiller;
+use App\Entity\Creneau;
 use App\Repository\CreneauRepository;
 use App\Repository\LangueRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,10 +45,22 @@ class MainController extends AbstractController
             'creneauxH' => $creneauRepository->findBy(["day" => new \DateTime($date)])
         ]);
     }
-    #[Route('/espace-rdv/conseillers/{lg}/{rdv}', name: 'conseillers')]
-    public function conseillers(string $lg, int $rdv): Response
+    #[Route('/espace-rdv/conseillers/{lg}/{idCreneau}', name: 'conseillers')]
+    public function conseillers(string $lg, int $idCreneau, CreneauRepository $creneauRepository): Response
     {
+        $Creneau_conseillers = $creneauRepository->find($idCreneau);
         return $this->render('main/conseillers.html.twig', [
+            'controller_name' => 'MainController',
+            'lan' => $lg,
+            'idCren' => $idCreneau,
+            'conseiller' => $Creneau_conseillers->getConseillers(),
+        ]);
+    }
+
+    #[Route('/espace-rdv/form-rdv/{lg}/{idCreneau}/{idConseiller}', name: 'formRDV')]
+    public function formRDV(string $lg, int $idCreneau, int $idConseiller, CreneauRepository $creneauRepository): Response
+    {
+        return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
             'lan' => $lg,
         ]);
